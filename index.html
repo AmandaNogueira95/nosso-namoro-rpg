@@ -1,203 +1,239 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Sistema de Quest do Nosso Namoro 💖</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2b2b45);
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<title>Amanda & Alissandra - Destino Supremo</title>
 
-    header {
-      background: #111827;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
+<style>
+body{
+  margin:0;
+  background:black;
+  color:#f5e6c8;
+  font-family:Georgia, serif;
+  overflow:hidden;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2.2em;
-      color: #f472b6;
-    }
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
 
-    header p {
-      margin-top: 10px;
-      color: #cbd5f5;
-    }
+#intro{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:10;
+  animation:fadeOut 3s 4s forwards;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-    }
+@keyframes fadeOut{
+  to{opacity:0;visibility:hidden;}
+}
 
-    .card {
-      background: #1f2937;
-      border-radius: 15px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
+h1{
+  font-size:3em;
+  animation:glow 2s infinite alternate;
+}
 
-    .card h2 {
-      margin-top: 0;
-      color: #a78bfa;
-    }
+@keyframes glow{
+  from{text-shadow:0 0 10px gold;}
+  to{text-shadow:0 0 30px gold;}
+}
 
-    .status {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+.section{
+  max-width:900px;
+  margin:40px auto;
+  padding:20px;
+}
 
-    .status div {
-      background: #111827;
-      padding: 15px;
-      border-radius: 10px;
-      flex: 1;
-      text-align: center;
-    }
+.card{
+  background:rgba(255,255,255,0.08);
+  padding:20px;
+  margin-bottom:20px;
+  border-radius:12px;
+}
 
-    .xp-bar {
-      background: #374151;
-      border-radius: 20px;
-      overflow: hidden;
-      height: 20px;
-      margin-top: 10px;
-    }
+button{
+  padding:12px 25px;
+  background:gold;
+  border:none;
+  cursor:pointer;
+  margin-top:10px;
+}
 
-    .xp-progress {
-      height: 100%;
-      width: 70%;
-      background: linear-gradient(90deg, #22c55e, #4ade80);
-      transition: width 1s;
-    }
+#letter{
+  display:none;
+  background:#f5e6c8;
+  color:black;
+  padding:20px;
+  border-radius:10px;
+  animation:fadeIn 2s forwards;
+}
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
 
-    ul li {
-      padding: 10px;
-      background: #111827;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #111827;
-      color: #cbd5f5;
-    }
-
-    .heart {
-      font-size: 1.5em;
-      animation: pulse 1.5s infinite;
-      color: #f472b6;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-
-    button {
-      background: #f472b6;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1em;
-      color: #111827;
-      margin-top: 15px;
-    }
-
-    button:hover {
-      background: #fb7185;
-    }
-  </style>
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:1.2em;
+}
+</style>
 </head>
-
 <body>
 
-<header>
-  <h1>🎮 Sistema de Quest do Nosso Namoro</h1>
-  <p>Um jogo cooperativo sem tela de Game Over 💖</p>
-</header>
+<canvas id="stars"></canvas>
 
-<div class="container">
+<div id="intro">
+<h1>✨ Amanda & Alissandra ✨</h1>
+<p>Uma história que o tempo nunca apagou</p>
+</div>
 
-  <div class="card">
-    <h2>👤 Personagens</h2>
-    <div class="status">
-      <div>
-        <strong>Classe</strong>
-        <p>Namorado(a) Épico(a)</p>
-      </div>
-      <div>
-        <strong>Level</strong>
-        <p>1</p>
-        <div class="xp-bar">
-          <div class="xp-progress"></div>
-        </div>
-        <small>XP: 700 / 1000</small>
-      </div>
-      <div>
-        <strong>Status</strong>
-        <p>❤️ Apaixonado(a)</p>
-      </div>
-    </div>
-  </div>
+<audio id="music" autoplay loop>
+<source src="veludo.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="card">
-    <h2>✅ Quests Concluídas</h2>
-    <ul>
-      <li>✨ Primeiro encontro</li>
-      <li>💬 Conversas até tarde</li>
-      <li>💋 Primeiro beijo</li>
-      <li>🎉 Primeiro mês juntos</li>
-    </ul>
-  </div>
+<div class="section">
 
-  <div class="card">
-    <h2>🕒 Quests em Andamento</h2>
-    <ul>
-      <li>🍿 Sessão de filmes juntos</li>
-      <li>🎧 Criar nossa playlist</li>
-      <li>✈️ Planejar uma viagem</li>
-    </ul>
-  </div>
+<div class="card">
+<h2>🧙 Chapéu Seletor</h2>
+<button onclick="sortingHat()">Descobrir Casa</button>
+<p id="hatText"></p>
+</div>
 
-  <div class="card">
-    <h2>🎒 Inventário</h2>
-    <ul>
-      <li>📸 Fotos especiais</li>
-      <li>💌 Mensagens guardadas</li>
-      <li>🎵 Músicas que lembram você</li>
-    </ul>
-  </div>
+<div class="card">
+<h2>📖 Livro do Destino</h2>
+<button onclick="openLetter()">Abrir Livro</button>
+<div id="letter">
+<p>Minha amada Alissandra,</p>
+<p>Mais de 10 anos atrás, começamos um capítulo.</p>
+<p>O universo nos separou… mas nunca nos apagou.</p>
+<p>Outubro de 2025 reacendeu a magia.</p>
+<p>01/01/2026 foi o início oficial do nosso sempre.</p>
+<p>E essa história… não terá fim.</p>
+<p>Com amor eterno, Amanda 💖</p>
+</div>
+</div>
 
-  <div class="card" style="text-align:center;">
-    <h2>💖 Mensagem Final</h2>
-    <p class="heart">Esse projeto não tem data de fim ❤️</p>
-    <button onclick="alert('Quest especial desbloqueada: Muitos momentos felizes juntos 💖')">
-      Desbloquear Quest Secreta
-    </button>
-  </div>
+<div class="card">
+<h2>📊 Status Supremo</h2>
+<p>Dias juntas: <span id="dias"></span></p>
+<p>Nível do Amor: <span id="level"></span></p>
+</div>
+
+<div class="card">
+<h2>🌌 Constelação</h2>
+<button onclick="drawName()">Revelar Nome nas Estrelas</button>
+</div>
+
+<div class="card">
+<h2>🎆 Magia Final</h2>
+<button onclick="fireworks()">Celebrar</button>
+</div>
 
 </div>
 
 <footer>
-  Criado com amor por você 💕 | v1.0
+✨ Esse projeto não tem data de fim ❤️ ✨
 </footer>
+
+<script>
+// ESTRELAS ANIMADAS
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let stars=[];
+for(let i=0;i<200;i++){
+stars.push({x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+speed:Math.random()*0.5});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="white";
+stars.forEach(s=>{
+s.y+=s.speed;
+if(s.y>canvas.height) s.y=0;
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+});
+requestAnimationFrame(animate);
+}
+animate();
+
+// CONTADOR
+const inicio=new Date("2026-01-01");
+const hoje=new Date();
+const dias=Math.floor((hoje-inicio)/(1000*60*60*24));
+document.getElementById("dias").innerText=dias;
+
+const meses=(hoje.getFullYear()-inicio.getFullYear())*12+
+(hoje.getMonth()-inicio.getMonth());
+document.getElementById("level").innerText=meses+1;
+
+// CHAPÉU
+function sortingHat(){
+const casas=["Coragem Ardente 🔥","Sabedoria Lunar 🌙","Lealdade Dourada ✨"];
+const escolha=casas[Math.floor(Math.random()*casas.length)];
+let texto="Hmm... vejo algo especial... "+escolha+"!";
+let i=0;
+document.getElementById("hatText").innerText="";
+let typing=setInterval(()=>{
+document.getElementById("hatText").innerText+=texto[i];
+i++;
+if(i>=texto.length) clearInterval(typing);
+},50);
+}
+
+// LIVRO
+function openLetter(){
+document.getElementById("letter").style.display="block";
+}
+
+// CONSTELAÇÃO
+function drawName(){
+ctx.fillStyle="gold";
+ctx.font="50px Georgia";
+ctx.fillText("Alissandra",canvas.width/2-150,canvas.height/2);
+}
+
+// FOGOS
+function fireworks(){
+for(let i=0;i<30;i++){
+ctx.fillStyle="gold";
+ctx.beginPath();
+ctx.arc(Math.random()*canvas.width,
+Math.random()*canvas.height,
+3,0,Math.PI*2);
+ctx.fill();
+}
+alert("✨ Amor leve desbloqueado! 💍✨");
+}
+
+// EASTER EGG
+let segredo="";
+document.addEventListener("keydown",e=>{
+segredo+=e.key.toLowerCase();
+if(segredo.includes("forever")){
+alert("Código secreto ativado: Um futuro inteiro juntas 💖");
+segredo="";
+}
+});
+</script>
 
 </body>
 </html>
