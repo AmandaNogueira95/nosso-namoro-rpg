@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Quest do Nosso Namoro 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #111827;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+      color: #f472b6;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #cbd5f5;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #1f2937;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #a78bfa;
+    }
+
+    .status {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .status div {
+      background: #111827;
+      padding: 15px;
+      border-radius: 10px;
+      flex: 1;
+      text-align: center;
+    }
+
+    .xp-bar {
+      background: #374151;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 20px;
+      margin-top: 10px;
+    }
+
+    .xp-progress {
+      height: 100%;
+      width: 70%;
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      transition: width 1s;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      padding: 10px;
+      background: #111827;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111827;
+      color: #cbd5f5;
+    }
+
+    .heart {
+      font-size: 1.5em;
+      animation: pulse 1.5s infinite;
+      color: #f472b6;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      background: #f472b6;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      color: #111827;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #fb7185;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎮 Sistema de Quest do Nosso Namoro</h1>
+  <p>Um jogo cooperativo sem tela de Game Over 💖</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>👤 Personagens</h2>
+    <div class="status">
+      <div>
+        <strong>Classe</strong>
+        <p>Namorado(a) Épico(a)</p>
+      </div>
+      <div>
+        <strong>Level</strong>
+        <p>1</p>
+        <div class="xp-bar">
+          <div class="xp-progress"></div>
+        </div>
+        <small>XP: 700 / 1000</small>
+      </div>
+      <div>
+        <strong>Status</strong>
+        <p>❤️ Apaixonado(a)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>✅ Quests Concluídas</h2>
+    <ul>
+      <li>✨ Primeiro encontro</li>
+      <li>💬 Conversas até tarde</li>
+      <li>💋 Primeiro beijo</li>
+      <li>🎉 Primeiro mês juntos</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🕒 Quests em Andamento</h2>
+    <ul>
+      <li>🍿 Sessão de filmes juntos</li>
+      <li>🎧 Criar nossa playlist</li>
+      <li>✈️ Planejar uma viagem</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🎒 Inventário</h2>
+    <ul>
+      <li>📸 Fotos especiais</li>
+      <li>💌 Mensagens guardadas</li>
+      <li>🎵 Músicas que lembram você</li>
+    </ul>
+  </div>
+
+  <div class="card" style="text-align:center;">
+    <h2>💖 Mensagem Final</h2>
+    <p class="heart">Esse projeto não tem data de fim ❤️</p>
+    <button onclick="alert('Quest especial desbloqueada: Muitos momentos felizes juntos 💖')">
+      Desbloquear Quest Secreta
+    </button>
+  </div>
+
+</div>
+
+<footer>
+  Criado com amor por você 💕 | v1.0
+</footer>
+
+</body>
+</html>
